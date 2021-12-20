@@ -16,7 +16,7 @@ Host specs:
 - Hypervisior: KVM/QEMU
 
 ## Solution
-Firtly, I check if nested virtualization is supported on my CPU, in my case it's amd.
+Firstly, I checked if nested virtualization is supported on my CPU, in my case it's amd.
 ```
 $ cat /sys/module/kvm_amd/parameters/nested
 1
