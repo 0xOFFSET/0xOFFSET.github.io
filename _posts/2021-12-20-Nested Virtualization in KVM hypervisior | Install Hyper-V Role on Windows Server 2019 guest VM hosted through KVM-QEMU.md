@@ -1,8 +1,12 @@
-# Nested Virtualization in KVM hypervisior | Install Hyper-V Role on Windows Server 2019 guest VM hosted through KVM-QEMU.
+---
+title: Nested Virtualization in KVM hypervisior | Install Hyper-V Role on Windows Server 2019 guest VM hosted through KVM-QEMU
+tags: Virtualization
+---
+
 
 Recently, I've decided to understand Windows Server Capabilities, Roles and Features by setting up my own Home Lab. I've interest to know more about clustering and migrations techniques, so I was to install Hyper-V role on my guest Windows Server 2019, but failed with this prompted message:
 
-![](Nested Virtualization in KVM hypervisior | Install Hyper-V Role on Windows Server 2019 guest VM hosted through KVM-QEMU/pic1.png)
+![](/assets/images/Nested-Virtualization-in-KVM-hypervisior-Install-Hyper-V-Role-on-Windows-Server-2019-guest-VM-hosted-through-KVM-QEMU/pic1.png)
 
 Host specs:
 - CPU: amd ryzen 5 3600
@@ -28,12 +32,12 @@ This third method uses the "Named Model", automatically picking a CPU model that
 
 ## Solution
 As result, I decided to open the XML config file my running VM (win server 2019) and check CPU model configuration. Surprisingly, it was configured to the non-accurate third method "Host-model", as listed below:
-![](Nested Virtualization in KVM hypervisior | Install Hyper-V Role on Windows Server 2019 guest VM hosted through KVM-QEMU/pic2.png)
+![](/assets/images/Nested-Virtualization-in-KVM-hypervisior-Install-Hyper-V-Role-on-Windows-Server-2019-guest-VM-hosted-through-KVM-QEMU/pic2.png)
 
 At first, I've tinkered with some xml attributes by choosing the trial and error method, but didn't work as machine didn't boot or prompted the famous windows failure blue screen.
 
-Eventually, after changing the cpu mode to "host-passthrough" it worked perfectly, and I was able install Hyper-V role. Don't change parameters, just try modifying the cpu mode only to avoid any issues with features support for example.
-![](Nested Virtualization in KVM hypervisior | Install Hyper-V Role on Windows Server 2019 guest VM hosted through KVM-QEMU/pic3.png)
+Eventually, after changing the cpu mode to **"host-passthrough"** it worked perfectly, and I was able install Hyper-V role. Don't change parameters, just try modifying the cpu mode only to avoid any issues with features support for example.
+![](/assets/images/Nested-Virtualization-in-KVM-hypervisior-Install-Hyper-V-Role-on-Windows-Server-2019-guest-VM-hosted-through-KVM-QEMU/pic3.png)
 
 Thanks for reading, I hope you find this helpful.
 
