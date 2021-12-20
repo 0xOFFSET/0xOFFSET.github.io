@@ -15,8 +15,34 @@ Host specs:
 - Virtualization: enabled in BIOS
 - Hypervisior: KVM/QEMU
 
+## Solution
+Firtly, I check if nested virtualization is supported on my CPU, in my case it's amd.
+```
+$ cat /sys/module/kvm_amd/parameters/nested
+1
+```
+If output is "Y" or "1", then it's supported.
 
-Apparently, it seems an issue with cpu model configuration and features related to my guest server VM.
+So, I've enabled this feature by:
+1. Shuting down all running VMs and unload the **KVM_probe** module:
+```
+$ sudo modprobe -r kvm_amd
+```
+2. Activating the nesting feature.
+```
+$ sudo modprobe kvm_amd nested=1
+```
+3. Enabling it permanently by adding the following line into **/etc/modprobe.d/kvm.conf** file:
+```
+options kvm_amd nested=1
+```
+
+> Note: **For intel CPUs replace any *kvm_amd* word by *kvm_intel*.**
+
+I've rebooted the host, and tried to install Hyper-V on my guest machine but failed again.
+
+
+Apparently, it seems an issue with cpu model configuration and features related to my guest VM.
 I've check qemu docs for cpu model configuration, and figured out that there're three ways to configure CPU models with QEMU/KVM:
 
 1. Host Passthrough
@@ -30,7 +56,6 @@ This third method uses the "Named Model", automatically picking a CPU model that
 
 *For more info about libvirt check resources.*
 
-## Solution
 As result, I decided to open the XML config file my running VM (win server 2019) and check CPU model configuration. Surprisingly, it was configured to the non-accurate third method "Host-model", as listed below:
 ![](/assets/images/Nested-Virtualization-in-KVM-hypervisior-Install-Hyper-V-Role-on-Windows-Server-2019-guest-VM-hosted-through-KVM-QEMU/pic2.png)
 
@@ -43,6 +68,7 @@ Thanks for reading, I hope you find this helpful.
 
 
 ## Resources:
+- https://docs.fedoraproject.org/en-US/quick-docs/using-nested-virtualization-in-kvm/
 - https://qemu.readthedocs.io/en/latest/system/qemu-cpu-models.html
 - https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine
 - https://libvirt.org/
