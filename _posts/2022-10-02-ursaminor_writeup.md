@@ -8,9 +8,10 @@ Hi Crypto Folks,
 
 This is writeup for Crypto Challege "URSA Minor" from BlackHat MEA 2022 CTF, it was really a great CTF, my team got the 28th place and qualified to join final round in KSA.
 
+```
 Level: Easy.
 Category: Cryptography - RSA.
-
+```
 
 
 A fast exploration for the code, you will find the flag is saved into environment variable called "FLAG" on the target CTF server.
@@ -26,6 +27,7 @@ Let's have a close look into prime_gen function, it yields both P,Q modulus fact
 
 Now, let's run the script.
 ```
+$ python ursaminor.py
 |
 |  ~ Welcome to URSA decryption services
 |    Press enter to start key generation...
@@ -75,9 +77,10 @@ def update_key(self):
 	self.private['d'] %= self.private['f']
 	self.public['e'] = inverse(self.private['d'], self.private['f'])
 ```
-
+```
 new_d = old_d ^ sha512(old_d + current_timestamp) % phi
 e = d ^ -1 % phi
+```
 
 From equations above, we should know it's impossible to predict the old private key "d", which is by the way not the only requirement to solve the challenge but also N is required. After multiple failed trials to abuse the code above to recover the private exponent "d", I've choosen another to path for the solution.
 
