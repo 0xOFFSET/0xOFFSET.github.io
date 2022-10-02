@@ -27,24 +27,13 @@ key: page-about
 ---
 
 
-My name is Osama Zidan, senior Computer Engineering student, interested in digital forensics and incident response, and CTF player. 
+My name is Osama Zidan, have Computer Engineering background, work as SOC Analyst, interested in digital forensics and incident response, and CTF player. 
 
-
-I think I'm enthusiast fast-leaner, with interest in computer low level stuff, I'm enhancing my technical skills to work as malware analyst. 
-
- 
-
-I have 3-4 years experience of Linux/UNIX background, in addition to Computer Science fundamentals, i.e. programming, network, Operating Systems, Computer Architecture, Cryptography.
- 
-
-
-
-## Extracurricular Activities 
-
-* I have participated in several national CTF competitions in Egypt. 
-* I've volunteered as a technical instructor in several universities I.e. "Ain-shams", "Al-Azhar", "El-shorouk Academy", delivering sessions about Linux/Python/Cyber security fundamentals. 
-* Organizer at [BSides Cairo](https://www.bsidescairo.com/) Conference. 
-* Lead technical team for [A virtual Hackathon](https://quarantinehackathon.devpost.com/). 
+Interests:
+- Reverse engineering
+- computers low level stuff
+- cryptography CTF
+- Digital Forensics
 
 
 ## Contact
