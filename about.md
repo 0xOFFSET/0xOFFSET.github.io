@@ -37,7 +37,6 @@ Interests:
 
 
 ## Contact
-* [Email](osamazidan20@gmail.com)
 * [LinkedIn](https://www.linkedin.com/in/osamazidan/)
 * [Twitter](https://twitter.com/0xOFFSET)
 * [Github](http://github.com/0xoffset)
