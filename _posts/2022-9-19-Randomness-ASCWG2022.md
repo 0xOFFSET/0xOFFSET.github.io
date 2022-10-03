@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Randomness Cryptograpgy challenge | ASCWG CTF 2022
-tags: CTF, Cryptograpgy
+tags: CTF Cryptograpgy
 ---
 
 It's an amazing and awesome experience to join CTF competitions, it's honor to participate in Arab Cyber Security Waregame 2022.
