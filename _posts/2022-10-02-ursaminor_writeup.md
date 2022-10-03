@@ -1,7 +1,7 @@
 ---
 layout: post
 title: URSA Minor Cryptography Challenge | BlackHat MEA 2022
-tags: CTF
+tags: CTF Cryptography
 ---
 
 
