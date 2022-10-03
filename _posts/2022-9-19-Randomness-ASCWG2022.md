@@ -7,8 +7,7 @@ tags: CTF, Cryptograpgy
 It's an amazing and awesome experience to join CTF competitions, it's honor to participate in Arab Cyber Security Waregame 2022.
 This's a quick walkthrough of "Randomness" cryptogrpahy challenge we've solved.
 
-I was amazed by the level an ideas of the challenges, as the author Ahmed Sayed had great effort on them.
-
+I was amazed by the level an ideas of the challenges, by the author Ahmed Sayed @Y4mm1.
 
 ```
 Level: Medium
@@ -16,7 +15,6 @@ Points: 600
 Category: Cryptography - Digital Signature 
 ```
 
-# Randomness
 
 
 It seems Elgamal Signature scheme , so let's figure out how it works at a glance and what're its weaknesses in order to reveal the flag.
