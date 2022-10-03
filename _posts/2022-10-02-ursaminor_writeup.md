@@ -63,7 +63,7 @@ From the output above, here're some observatinos:
 ```
 "|    id = {}".format(hashlib.sha256(str(oracle.public['n']).encode()).hexdigest())
 ```
-- the private key parameters: e,d are changed at the most begining of running the script and after every 3 trials of encryption.
+- both key exponents: e,d are changed at the most begining of running the script and after every 3 trials of encryption.
 - the flag ciphertext is returned at running the script every time.
 - the e parameter is so big after updating the key
 - when choose to update RSA keys, "id" hash value remains the same, hence the public modulus remains fixed for every script running session.
@@ -80,7 +80,7 @@ def update_key(self):
 ```
 ```
 new_d = old_d ^ sha512(old_d + current_timestamp) % phi
-e = d ^ -1 % phi
+e = new_d ^ -1 % phi
 ```
 
 From equations above, we should know it's impossible to predict the old private key "d", which is by the way not the only requirement to solve the challenge but also N is required. After multiple failed trials to abuse the code above to recover the private exponent "d", I've choosen another to path for the solution.
@@ -99,7 +99,7 @@ I've decided to deduce the modulus N from multiple pairs of messages & ciphertex
 
 Here's how it works:
 Consider you've access to RSA cryptosystem with fixed public modulus, you can choose two messages M1 and M2 then forms M1′= M1 ^ 2 and M2′= M2 ^ 2.
-Attacker can construct the corresponding ciphertexts: Ci = Mi ^ e mod N for (for 𝑖 ∈ {1,2}). Since M1′= M1 ^ 2, then C1′ ≡ C1 ^ 2 mod N , and from the modular aritemetics ((C1 ^ 2)- C1′) is a multiple of N. Similarly, ((Ci ^ 2)- Ci′) for any arbitray i value (it's better to choose i > 2).
+Attacker can construct the corresponding ciphertexts: Ci = Mi ^ e mod N (for 𝑖 ∈ {1,2,...}). Since M1′= M1 ^ 2, then C1′ ≡ C1 ^ 2 mod N , and from the modular arithmetic ((C1 ^ 2)- C1′) is a multiple of N. Similarly, ((Ci ^ 2)- Ci′) for any arbitray i value (it's better to choose i > 2).
 
 
 Here's a prove of concept
@@ -130,7 +130,7 @@ c5 = pow(m3, e, N)
 c6 = pow(m3_sqr, e, N)
 
 
-predicted_N = gcd(	(c1 ** 2) - c2,
+predicted_N = gcd((c1 ** 2) - c2,
 					(c3 ** 2) - c4,
 					(c5 ** 2) - c6))
 
@@ -140,7 +140,7 @@ predicted_N = gcd(	(c1 ** 2) - c2,
 ```
 
 
-I rewrite the script as follow to get the modulus, but I had to do it manually or to use "pwntools" while connecting to the challenge server. 
+I rewrote the script as follow to get the modulus, but I had to do it manually or to use "pwntools" while connecting to the challenge server. 
 
 ```
 # import required modules
@@ -369,6 +369,7 @@ Happy reading.
 
 
 # References:
+- https://en.wikipedia.org/wiki/Smooth_number
 - https://crypto.stackexchange.com/questions/43583/deduce-modulus-n-from-public-exponent-and-encrypted-data
 - https://en.wikipedia.org/wiki/Pollard%27s_p_%E2%88%92_1_algorithm
 
