@@ -24,7 +24,7 @@ Elgamal DSA is a digital signature scheme that relies on the complexity of compu
 
 The algorithm uses a randomoly choosen private key to sign the message, and public key for verification, so let's declare its operations into four steps and know about the parameters of the algotithm.
 
-1. Key generation
+1- Key generation
 - choose prime number: p of the same key lenght: N
 - choose a cryptographic function: H
 - choose a generator g < p of the multiplicative group of integers modulo p, {\displaystyle Z_{p}^{*}}Z_p^*.
@@ -37,16 +37,16 @@ Hence, the shared parameters of the the alogrithm between users & systems envolv
 Broadly speaking, the private and public keys are (p,g,x) and (p,g,y), repectively.
 
 
-2. Key distribution
+2- Key distribution
 
-3. Signing
+3- Signing
 - choose integer k randomly from {2...p - 2} with k relatively prime to p-1. (It's recommended not choose the same k with different signing operations, we will figure out why! Randomness!? )
 - compute r := g ^ k mod p
 - compute s := (H(m) - xr)* (K ^ -1) mod (p-1), where s shouln't equal 0.
 
 Hence, (r, s) are the generated signature for each message, keeping in mind that r will be fixed for different signatures in case of relying on the same parameter k.
 
-4. Verification
+4- Verification
 - verify 0 < r < p and 0 < s < p - 1
 - siganture is valid if and only if g ^ H(m) congurent (y ^ r) (r ^ s) mod p
 
