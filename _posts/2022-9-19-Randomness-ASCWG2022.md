@@ -10,11 +10,11 @@ This's a quick walkthrough of "Randomness" cryptogrpahy challenge we've solved.
 I was amazed by the level an ideas of the challenges, as the author Ahmed Sayed had great effort on them.
 
 
-`
+```
 Level: Medium
 Points: 600
 Category: Cryptography - Digital Signature 
-`
+```
 
 # Randomness
 
