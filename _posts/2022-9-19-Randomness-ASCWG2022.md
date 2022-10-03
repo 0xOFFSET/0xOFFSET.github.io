@@ -88,6 +88,28 @@ then the message (flag) m2 = ((s1 - s2)k + m1) mod p-1
 
 since, we don't know which s values map to each messages, let's try all combinations of s values and filter on messages starts with the flag schema.
 
+```
+# solution 
+from Crypto.Util.number import bytes_to_long, long_to_bytes
+
+p = 71500532584610353335967572228576961622670888049686244244336530474941226340958441170979183862795117652159440106046491327947803659173888001
+r = 15180490643754779176893601390461808246179622463402083215459478845197509774165830874456266786205622191557640552606801928895337889676286958
+k = 45252513931146808668347235459955660091 # r = g ^ k mod p (DLP problem)
+m1= b'I wanna look closer, but my glasses are broken!'
+
+
+with open('output.txt', 'r') as f:
+    s = f.readlines() # exclude the last line of the file
+    for i in s:
+        for j in s:
+            s1 = int(i.replace('\n', '')[2:], 16)
+            s2 = int(j.replace('\n', '')[2:], 16)
+
+            m2 = long_to_bytes((((s1 - s2) * k ) + bytes_to_long(m1)) % (p-1))
+            if (m2.startswith(b'ASCWG{')) and (m2.endswith(b'}')):
+                print(m2)
+```
+
 Finally, the flag is **ASCWG{H17719_7H3_W0r1d_0f_W33k_Pr1m3_E1G4m@1_n47ur3s}**
 
 ```
