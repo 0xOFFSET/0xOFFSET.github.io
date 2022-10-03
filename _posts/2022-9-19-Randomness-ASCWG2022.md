@@ -27,7 +27,7 @@ The algorithm uses a randomoly choosen private key to sign the message, and publ
 1- Key generation
 - choose prime number: p of the same key lenght: N
 - choose a cryptographic function: H
-- choose a generator g < p of the multiplicative group of integers modulo p, {\displaystyle Z_{p}^{*}}Z_p^*.
+- choose a generator g < p of the multiplicative group of integers modulo p, (Z*)p.
 
 Hence, the shared parameters of the the alogrithm between users & systems envolved are (p, g) (which are found the challenge code).
 
