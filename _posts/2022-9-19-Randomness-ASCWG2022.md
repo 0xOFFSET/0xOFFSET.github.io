@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Randomness Cryptograpgy challenge | ASCWG CTF 2022
 tags: CTF Cryptograpgy
 ---
