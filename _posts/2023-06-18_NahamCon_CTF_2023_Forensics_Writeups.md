@@ -82,7 +82,9 @@ There're a suspicious obfuscated powershell script in the Downloads folder calle
 Two of the most common initial access methods are drive-by-comprise and phishing. Had search for any artifacts related to browser activities but nothing related the malicious script.
 
 So, I had to check to any information about delivered mails, so I simply opened the mail client and found the below mail:
+
 ![](/assets/images/NahamCon_CTF_2023_Forensics_Writeups/pic9.png)
+
 ```flag{75f086f265fff161f81874c6e97dee0c}.```
 
 # IR#3 (Medium, 151 solves)
@@ -122,4 +124,4 @@ We can write a decryptor, but I prefer the lazy way again,  just recovering them
 
 
 Thanks for reading <3.
-![image](https://github.com/0xOFFSET/0xOFFSET.github.io/assets/19360052/99be2058-f30f-4690-8a19-ee98af0356f4)
+
