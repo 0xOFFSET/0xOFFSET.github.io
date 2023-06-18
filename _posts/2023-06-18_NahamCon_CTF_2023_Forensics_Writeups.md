@@ -112,7 +112,7 @@ Where is the data being exfiltrated? Please give the MD5 hash of the URL with th
 ## Solution
 Simple enough, from the above screenshot we can make sure that the script makes post requests to url ( https://www.thepowershellhacker.com/exfiltration ) as a method of data exfiltration.
 
-flag{32c53185c3448169bae4dc894688d564}
+```flag{32c53185c3448169bae4dc894688d564}```
 
 
 # IR#5 (Medium, 127 solves)
