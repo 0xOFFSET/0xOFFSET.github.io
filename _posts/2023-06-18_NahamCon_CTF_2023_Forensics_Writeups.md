@@ -107,9 +107,9 @@ After searching in the output, I've found the obfuscated script and its executio
 
 ```flag{892a8921517dcecf90685d478aedf5e2}```
 
-IR#4 (Medium, 155 solves)
+# IR#4 (Medium, 155 solves)
 Where is the data being exfiltrated? Please give the MD5 hash of the URL with the usual wrapper of flag{}.
-
+## Solution
 Simple enough, from the above screenshot we can make sure that the script makes post requests to url ( https://www.thepowershellhacker.com/exfiltration ) as a method of data exfiltration.
 
 flag{32c53185c3448169bae4dc894688d564}
@@ -119,8 +119,10 @@ flag{32c53185c3448169bae4dc894688d564}
 Can you please recover our files? 
 ## Solution
 We can write a decryptor, but I prefer the lazy way again,  just recovering them by autopsy and grep for potential flag format.
+
 ![](/assets/images/NahamCon_CTF_2023_Forensics_Writeups/pic11.png)
-``flag{593f1527d6b3b9e7da9bdc431772d32f}```
+
+```flag{593f1527d6b3b9e7da9bdc431772d32f}```
 
 
 Thanks for reading <3.
